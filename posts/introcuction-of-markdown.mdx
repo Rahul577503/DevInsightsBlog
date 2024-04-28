@@ -1,0 +1,55 @@
+---
+date: '2021-03-28'
+thumbnail: /assets/banana-bread.webp
+title: How Code block works in MDX
+description: using prismjs syntax heighlighting .
+readTime: 10
+---
+
+## Here is some Example of Code block using prims syntax heighlighting
+
+
+<CodeBlock code={`
+//Example of how code block workin in mdx
+const Name = 'Hey I'm Rahul '
+console.log(Name)
+`} language="jsx" />
+
+
+
+<CodeBlock code={
+`
+// (home)/components/CodeBlock.tsx
+import React from 'react';
+import Prism from 'prismjs';
+import 'prismjs/components/prism-jsx';
+import 'prismjs/themes/prism-okaidia.css';
+import DOMPurify from 'isomorphic-dompurify';
+import { BackgroundGradient } from '@/components/ui/background-gradient';
+
+interface CodeBlockProps {
+  children: string;
+}
+
+const CodeBlock: React.FC<CodeBlockProps> = ({ children }) => {
+  const language = 'jsx';
+  const highlightedCode = Prism.highlight(children, Prism.languages[language], language);
+
+  return (
+    <BackgroundGradient className="rounded-[22px] p-4 sm:p-10 bg-white dark:bg-zinc-900">
+      <pre >
+        <code
+          }
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(highlightedCode),
+          }}
+        ></code>
+      </pre>
+    </BackgroundGradient>
+  );
+};
+
+export default CodeBlock;
+`
+} language="jsx" />
+

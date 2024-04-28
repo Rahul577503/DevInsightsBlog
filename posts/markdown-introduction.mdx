@@ -1,0 +1,91 @@
+---
+date: '2021-03-28'
+thumbnail: /assets/banana-bread.webp
+title: markdown Introduction
+description: Learn markdown for your blog post.
+readTime: 10
+
+---
+
+ ---
+# Welcome to my MDX page!
+---
+ 
+This is some **bold** and _italics_ text.
+ 
+This is a list in markdown:
+ 
+- One
+- Two
+- Three
+ 
+Checkout my React component:
+
+## code CodeBlock
+
+<CodeBlock code={`
+// this is markdown synatax
+
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
+
+
+`} language="mdx" />
+
+
+
+<CodeBlock code={`
+// here is some html code 
+
+<div class="flex items-center justify-center mt-8">
+  <button class="px-3 py-2 rounded-md text-gray-700 hover:bg-gray-200 transition-colors disabled:text-gray-400 disabled:hover:bg-transparent">
+    <FiChevronLeft />
+  </button>
+  <button class="px-3 py-2 rounded-md text-gray-700 hover:bg-gray-200 transition-colors">1</button>
+  <button class="px-3 py-2 rounded-md text-gray-700 hover:bg-gray-200 transition-colors">2</button>
+  <button class="px-3 py-2 rounded-md text-gray-700 hover:bg-gray-200 transition-colors">3</button>
+  <button class="px-3 py-2 rounded-md text-gray-700 hover:bg-gray-200 transition-colors">4</button>
+  <button class="px-3 py-2 rounded-md text-gray-700 hover:bg-gray-200 transition-colors">5</button>
+  <button class="px-3 py-2 rounded-md text-gray-700 hover:bg-gray-200 transition-colors">6</button>
+  <button class="px-3 py-2 rounded-md text-gray-700 hover:bg-gray-200 transition-colors">7</button>
+  <button class="px-3 py-2 rounded-md text-gray-700 hover:bg-gray-200 transition-colors">8</button>
+  <button class="px-3 py-2 rounded-md text-gray-700 hover:bg-gray-200 transition-colors">9</button>
+  <button class="px-3 py-2 rounded-md text-gray-700 hover:bg-gray-200 transition-colors">10</button>
+  <button class="px-3 py-2 rounded-md text-gray-700 hover:bg-gray-200 transition-colors">
+    <FiChevronRight />
+  </button>
+</div>
+
+
+`} language="html" />
+
+
+<CodeBlock code={`
+// here is some css code 
+
+body {
+  background: linear-gradient(45deg, #ff7e5f, #feb47b, #ffeda6);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+`} language="css" />
+
+
