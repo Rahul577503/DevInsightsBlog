@@ -45,6 +45,7 @@ export default function Post(props: PostProps) {
               alt={props.frontMatter.title}
               width={1200}
               height={400}
+              placeholder="blur"
               className="rounded-lg py-4"
             />
           </div>
