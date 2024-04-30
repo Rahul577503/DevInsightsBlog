@@ -1,10 +1,12 @@
 import withMDX from '@next/mdx';
+import pkg from 'next-pwa';
+const withPWA = pkg();
 
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  eslint: {
-    dirs: ['pages', 'utils'], 
+  swcMinify: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV !== 'development',
   },
   images: {
     remotePatterns: [
@@ -26,10 +28,12 @@ const nextConfig = {
   },
 };
 
-export default withMDX({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [],
-    rehypePlugins: [],
-  },
-})(nextConfig);
+export default withPWA(
+  withMDX({
+    extension: /\.mdx?$/,
+    options: {
+      remarkPlugins: [],
+      rehypePlugins: [],
+    },
+  })(nextConfig)
+);

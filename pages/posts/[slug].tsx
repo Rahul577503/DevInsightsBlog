@@ -6,11 +6,13 @@ import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import CodeBlock from "../../components/Code";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import Head from 'next/head';
 
 interface FrontMatter {
-  [x: string]: string | StaticImport;
+  [x: string]: string;
   title: string;
+  description: string;
+  thumbnail: string;
 }
 
 interface PostProps {
@@ -28,6 +30,14 @@ export default function Post(props: PostProps) {
     <div className="w-full lg:max-w-[50rem] py-10 mx-auto mt-4 sm:mt-[2rem] lg:mt-10 px-4 lg:px-0 ">
       {props.frontMatter && props.mdxSource && (
         <div>
+          <Head>
+            <title>{props.frontMatter.title}</title>
+            <meta name="description" content={props.frontMatter.description} />
+            <meta property="og:title" content={props.frontMatter.title} />
+            <meta property="og:description" content={props.frontMatter.description} />
+            <meta property="og:image" content={props.frontMatter.thumbnail} />
+            <meta property="og:type" content="article" />
+          </Head>
           <div className="py-4">
             <h1 className="text-3xl">{props.frontMatter.title}</h1>
             <Image

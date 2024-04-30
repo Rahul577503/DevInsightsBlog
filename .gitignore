@@ -6,6 +6,13 @@
 .pnp.js
 .yarn/install-state.gz
 
+# PWA files
+/public/sw.js
+/public/workbox-*.js
+/public/worker-*.js
+/public/*.map
+
+
 # testing
 /coverage
 
@@ -34,3 +41,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+

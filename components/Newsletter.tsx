@@ -11,7 +11,7 @@ const Newsletter = () => {
             access to videos, articles, and courses.
           </p>
           <p className="font-md text-gray-900">
-            Worry not — I'll only use your email to send you programming
+            Worry not — {"I'll"} only use your email to send you programming
             content and you can unsubscribe at any time.
           </p>
         </div>
