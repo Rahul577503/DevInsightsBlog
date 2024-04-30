@@ -11,7 +11,7 @@ interface CodeBlockProps {
 }
 
 const highlight = (code: string, language = "markup") => {
-  if (language === "jsx" || language === "mdx") {
+  if (language === "jsx" || language === "md") {
     const grammar = language === "jsx" ? Prism.languages.jsx : Prism.languages.markup;
     return Prism.highlight(code, grammar, language);
   } else if (language === "css") {
@@ -25,18 +25,18 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ code, language }) => {
   const highlightedCode = highlight(code, language);
 
   return (
-    <div className="min-w-[50rem] mx-auto ">
-      <BackgroundGradient className="rounded-[22px] p-4 bg-black">
-        <pre>
-          <code
-            dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(highlightedCode),
-            }}
-          ></code>
-        </pre>
-      </BackgroundGradient>
-    </div>
+
+    <BackgroundGradient className="rounded-[22px] w-full p-4 bg-black ">
+      <pre className="overflow-x-auto scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-red-300">
+        <code
+          className="inline-block"
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(highlightedCode),
+          }}
+        ></code>
+      </pre>
+    </BackgroundGradient>
   );
 };
 
-export default CodeBlock;
+export default CodeBlock

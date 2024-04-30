@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
@@ -5,9 +6,8 @@ import Link from "next/link";
 import PostCard from "../components/PostCard";
 import { TypewriterEffect } from "@/components/ui/typewrite-effect";
 import Newsletter from "@/components/Newsletter";
-import { useState } from "react";
-import Pagination from "@/components/ui/Pagination";
 import { Spotlight } from "@/components/ui/Spotlight";
+import Pagination from "@/components/ui/Pagination";
 
 interface FrontMatter {
   title: string;
@@ -36,7 +36,7 @@ const words = [
   {
     text: "DevInsightsBlog",
     className:
-      "text-blue-500 text-base sm:text-xl md:text-2xl lg:text-3xl font-bold text-center my-20",
+      "text-blue-500  sm:text-xl md:text-2xl lg:text-3xl font-bold text-center ",
   },
 ];
 
@@ -54,14 +54,22 @@ export default function Home(props: HomeProps): JSX.Element {
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
+
+  const isDarkMode = true;
+
   return (
-    <div className="min-h-screen  rounded-md flex flex-col relative top-10 overflow-hidden">
+    <div className="min-h-screen w-full rounded-md flex flex-col relative top-20 overflow-hidden">
       <Spotlight
-        className="-top-40 left-0 md:left-60 md:-top-20"
-        fill="white"
+        className="-top-40 left-0 md:left-60 md:-top-2"
+        fill={isDarkMode ? "blue" : "blue"}
       />
-      <div className="max-w-[50rem] mx-auto  px-4">
-        <TypewriterEffect words={words} />
+
+      <div className="w-full lg:max-w-[50rem] mx-auto  px-4">
+        <div className="">
+          <TypewriterEffect words={words} />
+          <h1 className="text-2xl text-center">A software Development Blog</h1>
+        </div>
+        <br />
         <Newsletter />
         <br />
         {currentPosts.length > 0 ? (
