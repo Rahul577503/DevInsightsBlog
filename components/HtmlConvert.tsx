@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { remark } from 'remark';
+import {remark} from 'remark';
 import remarkHtml from 'remark-html';
 
 const HtmlConverter: React.FC = () => {
@@ -8,7 +8,7 @@ const HtmlConverter: React.FC = () => {
 
   const convertToMarkdown = () => {
     remark()
-      .use(remarkHtml, { sanitize: false, handlers: { link: handleLink } })
+      .use(remarkHtml, { sanitize: false })
       .process(htmlInput || '', (err, file) => {
         if (err) {
           console.error('Error converting HTML to Markdown:', err);
@@ -16,10 +16,6 @@ const HtmlConverter: React.FC = () => {
         }
         setMarkdownOutput(String(file));
       });
-  };
-
-  const handleLink = (h: (arg0: any) => string, node: { url: any }) => {
-    return `[${h(node).replace('[', '').replace(']', '')}](${node.url})`;
   };
 
   return (
@@ -36,7 +32,7 @@ const HtmlConverter: React.FC = () => {
       >
         Convert to Markdown
       </button>
-      <div className="mt-4">
+      <div className="mt-4 min-h-10 border border-gray-200 rounded-md">
         <h3>Markdown Output:</h3>
         <pre>{markdownOutput}</pre>
       </div>
