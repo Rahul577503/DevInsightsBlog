@@ -8,12 +8,36 @@ readTime: 10
 
 ## Here is some Example of Code block using prims syntax heighlighting
 
+Here's a basic Markdown syntax guide along with some extended syntax elements:
 
+1. **Basic Elements**:
+   - **Heading**: `# H1`, `## H2`, `### H3`
+   - **Bold**: `**bold text**`
+   - **Italic**: `*italicized text*`
+   - **Blockquote**: `> blockquote`
+   - **Ordered List**: `1. First item`, `2. Second item`, `3. Third item`
+   - **Unordered List**: `- First item`, `- Second item`, `- Third item`
+   - **Code**: \`code\`
+   - **Horizontal Rule**: `---`
+   - **Link**: `[title](https://www.example.com)`
+   - **Image**: `![alt text](image.jpg)`
+
+2. **Extended Syntax**:
+   - **Table**:
+     ```markdown
+     | Syntax | Description |
+     | ----------- | ----------- |
+     | Header | Title |
+     | Paragraph | Text |
+     ```
+   
+   ### Code Block
 <CodeBlock code={`
 //Example of how code block workin in mdx
 const Name = 'Hey I'm Rahul '
 console.log(Name)
-`} language="jsx" />
+
+`} language="md" />
 
 
 
@@ -52,4 +76,38 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ children }) => {
 export default CodeBlock;
 `
 } language="jsx" />
+
+
+
+     ```
+   - **Footnote**:
+     ```
+     Here's a sentence with a footnote. [^1]
+
+     [^1]: This is the footnote.
+     ```
+   - **Heading ID**:
+     `### My Great Heading {#custom-id}`
+   - **Definition List**:
+     ```
+     term
+     : definition
+     ```
+   - **Strikethrough**: `~~The world is flat.~~`
+   - **Task List**:
+     ```
+     - [x] Write the press release
+     - [ ] Update the website
+     - [ ] Contact the media
+     ```
+   - **Emoji**: `That is so funny! :joy:`
+   - **Highlight**: `I need to highlight these ==very important words==.`
+   - **Subscript**: `H~2~O`
+   - **Superscript**: `X^2^`
+
+Feel free to use these Markdown elements when creating your blog post content. If you need more detailed examples or explanations for any specific element, let me know!
+
+
+
+
 
