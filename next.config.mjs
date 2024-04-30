@@ -1,12 +1,8 @@
-import withMDX from '@next/mdx';
-import pkg from 'next-pwa';
-const withPWA = pkg();
+import withMDX from "@next/mdx";
 
 const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-  compiler: {
-    removeConsole: process.env.NODE_ENV !== 'development',
+  eslint: {
+    dirs: ['pages', 'utils'],
   },
   images: {
     remotePatterns: [
@@ -16,7 +12,7 @@ const nextConfig = {
       },
     ],
   },
-  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback = {
@@ -28,12 +24,10 @@ const nextConfig = {
   },
 };
 
-export default withPWA(
-  withMDX({
-    extension: /\.mdx?$/,
-    options: {
-      remarkPlugins: [],
-      rehypePlugins: [],
-    },
-  })(nextConfig)
-);
+export default withMDX({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+})(nextConfig);

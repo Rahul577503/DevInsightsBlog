@@ -17,24 +17,20 @@ export const roboto_mono = Roboto_Mono({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-
     <>
-    <Head>
+      <Head>
         <title>DevInsightsBlog</title>
-        <meta name="description" content="Your page description for SEO" />
-        <link rel="manifest" href="/manifest.json" />
-        <link rel="apple-touch-icon" href="/icon.png"></link>
-        <meta name="theme-color" content="#fff" />
+        <meta name="description" content="A Blog for Devloper " />
+
         <link rel="icon" href="/favicon.ico" />
       </Head>
-    <main className={`${roboto_mono.className}`}>
-      <ThemeProvider enableSystem={true} attribute="class">
-        <Navbar/>
-        <Component {...pageProps} />
-        <Footer/>
-      </ThemeProvider>
-    </main>
+      <main className={`${roboto_mono.className}`}>
+        <ThemeProvider enableSystem={true} attribute="class">
+          <Navbar />
+          <Component {...pageProps} />
+          <Footer />
+        </ThemeProvider>
+      </main>
     </>
-    
   );
 }

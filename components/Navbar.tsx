@@ -16,6 +16,8 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { label: "Home", page: "/" },
+  { label: "Tools", page: "/tools" },
+
 ];
 
 const Navbar =() => {
