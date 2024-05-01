@@ -32,7 +32,7 @@ const HtmlConverter: React.FC = () => {
       >
         Convert to Markdown
       </button>
-      <div className="mt-4 min-h-10 border border-gray-200 rounded-md">
+      <div className="mt-4 min-h-10 p-2 border border-gray-200 rounded-md">
         <h3>Markdown Output:</h3>
         <pre>{markdownOutput}</pre>
       </div>

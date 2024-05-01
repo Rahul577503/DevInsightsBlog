@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import {remark} from 'remark';
 import remarkHtml from 'remark-html';
-import { VFile } from 'vfile';
 
 const MarkdownConverter: React.FC = () => {
   const [markdownInput, setMarkdownInput] = useState<string>('');
@@ -9,8 +8,8 @@ const MarkdownConverter: React.FC = () => {
 
   const convertToHtml = () => {
     remark()
-      .use(remarkHtml as any) // Use remarkHtml as any
-      .process(markdownInput || '', (err, file) => { // Adjust callback parameters
+      .use(remarkHtml as any)
+      .process(markdownInput || '', (err, file) => { 
         if (err instanceof Error) {
           console.error('Error converting Markdown to HTML:', err);
           return;
@@ -33,7 +32,7 @@ const MarkdownConverter: React.FC = () => {
       >
         Convert to HTML
       </button>
-      <div className="mt-4 min-h-10 border border-gray-200 rounded-md">
+      <div className="mt-4 min-h-10 border border-gray-200 p-2 rounded-md">
         <h3>HTML Output:</h3>
         <div dangerouslySetInnerHTML={{ __html: htmlOutput }} />
       </div>
